@@ -1,0 +1,6 @@
+path: C:\BE Project 2024\data #dataset root dir
+train: images\train #train images relative to 'path'
+val: images\train #train val relative to 'path'
+
+names:
+  0: number-plate

@@ -1,0 +1,6 @@
+path:  D:\December 2023 BE Project\BE Project 2024\data #dataset root dir
+train: images\train #train images relative to 'path'
+val: images\train #train val relative to 'path'
+
+nc: 3
+names: ['no_helmet','helmet','number_plate']
