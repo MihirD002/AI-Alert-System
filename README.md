@@ -33,95 +33,6 @@ This is an ideal solution for traffic enforcement, highway monitoring, and road 
 - **OCR**: EasyOCR
 - **Tracking**: SORT (Simple Online and Realtime Tracking)
 
-## 📦 Dependencies
-
-Key requirements are listed in `requirements.txt`:
-
-```
-ultralytics==8.0.114
-pandas==2.0.2
-opencv-python==4.7.0.72
-numpy==1.24.3
-scipy==1.10.1
-easyocr==1.7.0
-filterpy==1.4.5
-```
-
-## 🚀 Installation
-
-### Prerequisites
-- Python 3.8+
-- pip package manager
-- A video file or camera feed for testing
-
-### Setup Instructions
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/MihirD002/AI-Alert-System.git
-   cd AI-Alert-System
-   ```
-
-2. **Create a virtual environment** (optional but recommended)
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## 📋 Configuration
-
-### Model Configuration
-
-Edit `config.yaml` to specify your dataset paths and class names:
-
-```yaml
-path: D:\December 2023 BE Project\BE Project 2024\data  # Dataset root directory
-train: images\train                                        # Training images path
-val: images\val                                           # Validation images path
-
-nc: 3  # Number of classes
-names: ['no_helmet', 'helmet', 'number_plate']
-```
-
-## 🎮 Usage
-
-### Main Detection Script
-
-Run the primary detection script:
-
-```bash
-python main3.py
-```
-
-This script will:
-- Load the YOLOv8 COCO model for vehicle detection
-- Load the custom-trained license plate detector
-- Process video frames
-- Track vehicles using SORT
-- Detect helmets and license plates
-- Export results to CSV
-
-### Video Input
-
-Update the video path in the script:
-```python
-cap = cv2.VideoCapture('./sample 16.mp4')
-```
-
-### Output
-
-Results are saved in CSV format with the following structure:
-- Frame number
-- Vehicle ID (from tracking)
-- Bounding boxes for vehicles and license plates
-- License plate text and confidence scores
-- Helmet detection status
-
 ## 📁 Project Structure
 
 ```
@@ -214,8 +125,7 @@ Access the web interface through:
 
 ## 📈 Results Analysis
 
-Results are exported to CSV files with comprehensive detection data:
-- `newcode_22-2-24.csv` - Sample output file
+Results are exported to CSV files with comprehensive detection data.
 
 Each record contains:
 - Frame number
@@ -225,53 +135,5 @@ Each record contains:
 - License plate text
 - Helmet status
 
-## 🔧 Customization
-
-### Adjust Proximity Threshold
-```python
-proximity_threshold = 10000  # Adjust sensitivity
-```
-
-### Change Detection Confidence
-Modify YOLOv8 confidence thresholds in the detection calls.
-
-### Add Custom Classes
-Update `config.yaml` with additional class names and retrain the model.
-
-## 🐛 Troubleshooting
-
-### Model Loading Issues
-- Ensure `yolov8n.pt` exists in the project root
-- Verify custom model path: `./runs/detect/train2/weights/best.pt`
-- Check Python package versions match `requirements.txt`
-
-### Video Processing Errors
-- Verify video file format is supported (MP4, AVI, MOV)
-- Ensure sufficient disk space for frame processing
-- Check video codec compatibility with OpenCV
-
-### OCR Accuracy
-- Low confidence scores may indicate poor image quality
-- Preprocess license plates with thresholding (already implemented)
-- Consider image enhancement techniques for blurry plates
-
-## 📝 License
-
-This project is developed as part of the Backend Project 2024 course.
-
-## 👥 Contributing
-
-For contributions, please feel free to:
-- Report issues
-- Submit pull requests
-- Suggest improvements
-
-## 📞 Support
-
-For questions or issues, please open an issue in the GitHub repository.
-
----
-
-**Created by**: MihirD002  
 **Repository**: [AI-Alert-System](https://github.com/MihirD002/AI-Alert-System)  
 **Project Type**: BE Project 2024
